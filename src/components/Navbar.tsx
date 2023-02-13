@@ -7,7 +7,7 @@ import { MenuIcon } from './icons';
 
 export default function Navbar(): ReactElement<'nav'> {
   return (
-    <nav className='bg-peach dark:bg-medium-slate-blue h-12 flex items-center'>
+    <nav className='bg-peach dark:bg-medium-slate-blue h-12 flex items-center lg:pr-64 lg:pl-64'>
       <div className='lg:pl-4'>
         <Link href='/'>
           <div className='flex items-center justify-center [&>img]:hover:rotate-12 gap-1'>
@@ -22,7 +22,7 @@ export default function Navbar(): ReactElement<'nav'> {
         <Link href='/other'>Other</Link>
         <Link href='/other'>Contact</Link>
       </div>
-      <div className='flex flex-row ml-auto pr-4 md:ml-auto md:pr-4'>
+      <div className='flex flex-row ml-auto pr-4 pl-4 md:ml-auto md:pr-8'>
         <ThemeSwitcher />
         <div className="lg:hidden pl-4">
           <button className="flex items-center px-3 py-3 border-2 rounded">
