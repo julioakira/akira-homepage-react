@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { ReactElement } from "react";
 
-export default function MenuIcon(props: any) {
+export default function MenuIcon(props: any): ReactElement<'svg'> {
   return (
     <svg
       baseProfile="tiny"
@@ -12,5 +12,5 @@ export default function MenuIcon(props: any) {
     >
       <path d="M19 17H5c-1.103 0-2 .897-2 2s.897 2 2 2h14c1.103 0 2-.897 2-2s-.897-2-2-2zm0-7H5c-1.103 0-2 .897-2 2s.897 2 2 2h14c1.103 0 2-.897 2-2s-.897-2-2-2zm0-7H5c-1.103 0-2 .897-2 2s.897 2 2 2h14c1.103 0 2-.897 2-2s-.897-2-2-2z" />
     </svg>
-  )
+  );
 }
