@@ -1,9 +1,9 @@
 import React, { useRef, useEffect, ReactElement, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import AkiraImage from "../../public/images/akira-pill.png";
+import AkiraImage from "../../../public/images/akira-pill.png";
 import ThemeSwitcher from "./ThemeSwitcher";
-import { OpenNavIcon, CloseNavIcon } from "./icons";
+import { OpenNavIcon, CloseNavIcon } from "../icons";
 
 export default function Navbar(): ReactElement<"nav"> {
   const [expandedNav, setExpandedNav] = useState(false);
@@ -67,7 +67,7 @@ export default function Navbar(): ReactElement<"nav"> {
           id="nav-default"
           className={`${
             expandedNav
-              ? "absolute right-0 bg-peach px-2 dark:bg-medium-slate-blue"
+              ? "absolute right-0 bg-peach px-2 dark:bg-medium-slate-blue h-full"
               : "hidden"
           } md:block md:w-auto`}
         >
