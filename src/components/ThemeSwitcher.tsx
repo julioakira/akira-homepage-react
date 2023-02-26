@@ -25,7 +25,7 @@ export default function ThemeSwitcher(
       whileHover={{ scale: 1.1 }}
       whileTap={{ scale: 0.9 }}
       className={`rounded-lg p-3  ${
-        theme === "light" ? "bg-purple-400" : "bg-orange-300"
+        theme === "light" ? "bg-purple-400" : "bg-orange-400"
       } ${props.className}`}
       onClick={changeTheme}
     >

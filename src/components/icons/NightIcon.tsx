@@ -1,6 +1,6 @@
-import React, { ReactElement } from 'react';
+import React, { ReactElement } from "react";
 
-function NightIcon(props: any): ReactElement<'svg'> {
+function NightIcon({ props }: any): ReactElement<"svg"> {
   return (
     <svg
       fill="currentColor"
