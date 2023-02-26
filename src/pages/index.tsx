@@ -1,7 +1,5 @@
 import Head from 'next/head'
-
-import Navbar from '@/components/Navbar/Navbar'
-import Nav from '@/components/Navbar/Nav';
+import Navbar from '@/components/Navbar/Navbar';
 import About from '@/components/About/About'
 
 export default function Home() {
@@ -14,7 +12,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.png" />
       </Head>
       <main>
-        <Nav />
+        <Navbar />
         <About />
       </main>
     </>

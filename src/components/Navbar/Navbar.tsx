@@ -1,15 +1,32 @@
-import React, { useRef, useEffect, ReactElement, useState } from "react";
-import Link from "next/link";
-import Image from "next/image";
-import AkiraImage from "../../../public/images/akira-pill.png";
+import React, { useEffect, useRef } from "react";
+import { motion, useCycle } from "framer-motion";
+import MenuList from "./MenuList";
+import ToggleButton from "./ToggleButton";
 import ThemeSwitcher from "./ThemeSwitcher";
-import { OpenNavIcon, CloseNavIcon } from "../icons";
+import Logo from "./Logo";
+import Sidebar from "./Sidebar";
 
-export default function Navbar(): ReactElement<"nav"> {
-  const [expandedNav, setExpandedNav] = useState(false);
+type Handler = (event: Event) => void;
+
+const items = ["About", "Works", "Other", "Contact"];
+
+function useDimensions(ref: any) {
+  const dimensions = useRef({ width: 0, height: 0 });
+
+  useEffect(() => {
+    dimensions.current.width = ref.current.offsetWidth;
+    dimensions.current.height = ref.current.offsetHeight;
+  }, []);
+
+  return dimensions.current;
+}
+
+export default function Navbar() {
+  const [open, toggleOpen] = useCycle(false, true);
+  const navRef = useRef(null);
+  const { height } = useDimensions(navRef);
+
   const WrapperRef = useRef<HTMLDivElement>(null);
-
-  type Handler = (event: Event) => void;
 
   const ClickOutside = (ref: typeof WrapperRef, handler: Handler): any => {
     useEffect(() => {
@@ -27,90 +44,25 @@ export default function Navbar(): ReactElement<"nav"> {
     }, [ref, handler]);
   };
 
-  ClickOutside(WrapperRef, () => setExpandedNav(false));
+  ClickOutside(WrapperRef, () => open ? toggleOpen() : null);
 
   return (
-    <nav className="bg-peach px-2 dark:bg-medium-slate-blue">
-      <div
-        ref={WrapperRef}
-        className={`${
-          expandedNav
-            ? "h-12"
-            : "container mx-auto flex w-full flex-wrap items-center justify-between pt-2 pb-2 md:pt-0  lg:pt-0"
-        }`}
-      >
-        <div className={`${expandedNav ? "hidden" : ""} lg:pl-4`}>
-          <Link href="/">
-            <div className="flex items-center justify-center gap-1 [&>img]:hover:rotate-12">
-              <Image
-                width={40}
-                height={20}
-                className="pl-4"
-                src={AkiraImage.src}
-                alt="Akira Logo"
-              />
-              <span className="self-center text-xl">Akira</span>
-            </div>
-          </Link>
-        </div>
-        <div className="md:hidden">
-          <button
-            onClick={() => setExpandedNav(!expandedNav)}
-            type="button"
-            data-collapse-toggle="nav-default"
-          >
-            {expandedNav ? null : <OpenNavIcon />}
-            <span className="sr-only">Open Menu</span>
-          </button>
-        </div>
-        <div
-          id="nav-default"
-          className={`${
-            expandedNav
-              ? "absolute right-0 bg-peach px-2 dark:bg-medium-slate-blue h-full"
-              : "hidden"
-          } md:block md:w-auto`}
-        >
-          <ul className="flex flex-col p-4 md:flex-row md:border-0 md:text-sm">
-            <li className={`${expandedNav ? "" : "hidden"}`}>
-              <Link className="md:border-0" href="/">
-                <div className="flex items-center">
-                  <Image
-                    width={20}
-                    height={20}
-                    src={AkiraImage.src}
-                    alt="Akira Logo"
-                  />
-                  <span className="self-center text-xl">Akira</span>
-                </div>
-              </Link>
-            </li>
-            <li>
-              <Link className="block py-2 pl-3 pr-8 md:border-0" href="/about">
-                About
-              </Link>
-            </li>
-            <li>
-              <Link className="block py-2 pl-3 pr-8 md:border-0" href="/works">
-                Works
-              </Link>
-            </li>
-            <li>
-              <Link className="block py-2 pl-3 pr-8 md:border-0" href="/other">
-                Other
-              </Link>
-            </li>
-            <li>
-              <Link className="block py-2 pl-3 pr-8 md:border-0" href="/other">
-                Contact
-              </Link>
-            </li>
-            <li>
-              <ThemeSwitcher className="block p-2.5 md:border-0" />
-            </li>
-          </ul>
-        </div>
+    <motion.nav
+      className="bg-peach dark:bg-medium-slate-blue w-full h-20"
+      animate={open ? "open" : "closed"}
+      ref={navRef}
+      initial={false}
+      custom={height}
+    >
+      <div ref={WrapperRef} className="mr-auto">
+        <ToggleButton toggle={() => toggleOpen()} />
+        <Sidebar 
+          className='bg-purple-400 dark:bg-orange-400 top-0 left-0 bottom-0 w-60 absolute'
+        />
+        <MenuList menuItems={items} />
+        <ThemeSwitcher className="float-right mt-3 mr-4" />
+        <Logo className='flex items-center justify-center -mt-9'/>
       </div>
-    </nav>
+    </motion.nav>
   );
 }
