@@ -24,7 +24,10 @@ module.exports = {
         // details
 				"akira-blue": "#009DDC",
 				"akira-red": "#FF5555",
-			}
+			},
+      width: {
+        "container": '65rem',
+      }
 		},
   },
   darkMode: 'class',

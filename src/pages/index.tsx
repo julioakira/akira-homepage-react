@@ -1,6 +1,6 @@
-import Head from 'next/head'
-import Navbar from '@/components/Navbar/Navbar';
-import About from '@/components/About/About'
+import Head from "next/head";
+import Navbar from "@/components/Navbar/Navbar";
+import About from "@/components/About/About";
 
 export default function Home() {
   return (
@@ -16,5 +16,5 @@ export default function Home() {
         <About />
       </main>
     </>
-  )
+  );
 }

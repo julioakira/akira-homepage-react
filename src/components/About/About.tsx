@@ -1,18 +1,13 @@
-import React, { ReactElement } from 'react';
+import React, { ReactElement } from "react";
 
-export default function About(): ReactElement<'div'> {
+import MainFigure from "./MainFigure";
+
+export default function About(): ReactElement<"section"> {
   return (
-    <div id='about'>
-      <div className='flex items-center justify-center'>
-        <h1 className='text-3xl'>
-          Julio Akira
-        </h1>
-      </div>
-      <div className='flex text-center justify-center'>
-        <h2 className=''>
-          Full Stack Web Developer Based in São Paulo
-        </h2>
-      </div>
-    </div>
+    <section id="about" className="bg-blue-300 lg:pl-60 lg:pr-60 ml-30 mr-30">
+      <MainFigure />
+      <MainFigure />
+      <MainFigure />
+    </section>
   );
 }
