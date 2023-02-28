@@ -38,7 +38,7 @@ export default function Item({ itemTitle }: { itemTitle: string }) {
         />
       </div>
       <div>
-        <Link className="flex w-16" href="/about">
+        <Link className="flex w-16" href={`/${itemTitle.toLocaleLowerCase()}`}>
           {itemTitle}
         </Link>
       </div>

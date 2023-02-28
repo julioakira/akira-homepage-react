@@ -28,7 +28,7 @@ export default function Navbar() {
 
   const WrapperRef = useRef<HTMLDivElement>(null);
 
-  const ClickOutside = (ref: typeof WrapperRef, handler: Handler): any => {
+  const ClickOutside = (ref: typeof WrapperRef, handler: Handler): void => {
     useEffect(() => {
       function eventListener(e: Event): void {
         if (!ref.current || ref.current.contains(e.target as HTMLDivElement))
