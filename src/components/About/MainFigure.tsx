@@ -5,18 +5,19 @@ import AkiraImage from "../../../public/images/akira.jpg";
 
 export default function MainFigure() {
   return (
-    <figure className='bg-yellow-300 w-full'>
-      <div className="flex flex-col items-center">
+    <figure className='bg-cornsilk dark:bg-bunker w-full'>
+      <div className="flex lg:flex-row items-center justify-center flex-col">
         <Image
           className="rounded-full p-4"
-          width={200}
-          height={200}
+          width={150}
+          height={150}
           src={AkiraImage.src}
           alt="Akira Picture"
         />
-        <figcaption className='flex flex-col items-center'>
-          <span className="text-xl">Julio Akira</span>
-          <span className="text-md">Full Stack Web Developer</span>
+        <figcaption className='flex flex-col lg:items-start items-center'>
+          <span className="lg:text-2xl text-xl">Julio Akira</span>
+          <span className="lg:text-xl text-lg">Full-Stack Developer</span>
+          <span className="text-md">NodeJS, MERN/PERN TypeScript/JavaScript</span>
         </figcaption>
       </div>
     </figure>

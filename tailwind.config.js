@@ -16,6 +16,7 @@ module.exports = {
         
         // background
         "bunker": "#22272E",
+        "black_russian": "#202023",
         // light mode palette
         "peach": "#F3B391",
         "desert-sand": "#F6D4BA",
