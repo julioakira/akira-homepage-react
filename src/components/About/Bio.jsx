@@ -17,7 +17,7 @@ export default function Bio() {
           },
           {
             lead: '2017-present',
-            text: 'Working in Kronoos (Full-Stack Developer).'
+            text: 'Working at Kronoos (Full-Stack Developer).'
           },
           {
             lead: '2021',
