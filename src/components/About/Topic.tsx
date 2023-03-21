@@ -2,10 +2,10 @@ import React from 'react';
 
 export default function Topic({ topic }: { topic: Topic}) {
   return (
-    <div className='flex gap-2'>
+    <div className='pt-1 pb-1'>
       <span className="font-bold">{topic.lead}</span>
-      <span className='font-bold'>|</span>
-      <p className='pb-2'>{topic.text}</p>
+      <span className='font-bold pr-1 pl-1'>|</span>
+      {topic.text}
     </div>
   )
 }

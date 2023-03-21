@@ -25,7 +25,7 @@ export default function Bio() {
           },
           {
             lead: '2022-present',
-            text: 'Working as a freelancer.',
+            text: 'Working part-time as a freelancer.',
           },
         ]
         }

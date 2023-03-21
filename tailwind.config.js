@@ -1,10 +1,19 @@
 /** @type {import('tailwindcss').Config} */
+
+const defaultTheme = require('tailwindcss/defaultTheme')
+
 module.exports = {
   content: [
     "./src/**/*.{html,js,ts,jsx,tsx}",
     "./public/*.{html,js,ts,jsx,tsx}"
   ],
   theme: {
+    fontFamily: {
+      sans: ["LatoRegular", ...defaultTheme.fontFamily.sans],
+      "sans-medium": ["LatoRegular"],
+      serif: ["SolwayRegular", ...defaultTheme.fontFamily.serif],
+      "serif-medium": ["SolwayMedium"],
+    },
     extend: {
 			colors: {
 				// night mode palette
@@ -26,11 +35,8 @@ module.exports = {
 				"akira-blue": "#009DDC",
 				"akira-red": "#FF5555",
 			},
-      width: {
-        "container": '65rem',
-      }
 		},
   },
-  darkMode: 'class',
+  darkMode: "class",
   plugins: [],
 }

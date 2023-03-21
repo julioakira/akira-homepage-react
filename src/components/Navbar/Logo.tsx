@@ -9,9 +9,8 @@ export default function Logo(props: any) {
       <Link href="/">
         <div className="flex items-center justify-center gap-1 [&>img]:hover:rotate-12">
           <Image
-            width={50}
-            height={20}
-            className="pl-4"
+            width={25}
+            height={25}
             src={AkiraImage.src}
             alt="Akira Logo"
           />

@@ -3,7 +3,7 @@ import React, { ReactElement } from "react";
 function NightIcon({ props }: any): ReactElement<"svg"> {
   return (
     <svg
-      fill="currentColor"
+      fill='#2E2E2E'
       viewBox="0 0 16 16"
       height="1em"
       width="1em"

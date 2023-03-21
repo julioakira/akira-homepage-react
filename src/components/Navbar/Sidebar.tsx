@@ -2,16 +2,16 @@ import React from "react";
 import { motion } from "framer-motion";
 
 const sidebar = {
-  open: (height = 200) => ({
-    clipPath: `circle(${height * 2 + 200}px at 40px 40px)`,
+  open: {
+    clipPath: "circle(500px at 40px 40px)",
     transition: {
       type: "spring",
       stiffness: 20,
       restDelta: 2,
     },
-  }),
+  },
   closed: {
-    clipPath: "circle(30px at 40px 40px)",
+    clipPath: "circle(0px at 17% -20px)",
     transition: {
       delay: 0.5,
       type: "spring",
@@ -21,6 +21,11 @@ const sidebar = {
   },
 };
 
-export default function Sidebar(props: any) {
-  return <motion.div {...props} variants={sidebar} />;
+export default function Sidebar({...props}: any) {
+  return (
+    <motion.div
+      variants={sidebar}
+      {...props}
+    />
+  );
 }

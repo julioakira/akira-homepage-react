@@ -1,3 +1,20 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
+@font-face {
+  font-family: "LatoRegular";
+  src: url("/fonts/Lato-Regular.ttf");
+}
+
+@font-face {
+  font-family: "SolwayRegular";
+  src: url("/fonts/Solway-Regular.ttf");
+}
+
+@font-face {
+  font-family: "SolwayMedium";
+  src: url("/fonts/Solway-Medium.ttf");
+}

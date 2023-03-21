@@ -3,7 +3,7 @@ import React, { ReactElement } from "react";
 export default function DayIcon({ props }: any): ReactElement<"svg"> {
   return (
     <svg
-      fill="currentColor"
+      fill='#FFF'
       viewBox="0 0 16 16"
       height="1em"
       width="1em"

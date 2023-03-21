@@ -24,7 +24,7 @@ const variants = {
 export default function Item({ itemTitle }: { itemTitle: string }) {
   return (
     <motion.li
-      className="mb-5 h-16 flex items-center"
+      className="flex items-center mb-5 h-16 p-5"
       variants={variants}
       whileHover={{ scale: 1.1 }}
       whileTap={{ scale: 0.9 }}

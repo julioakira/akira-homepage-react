@@ -15,7 +15,7 @@ const variants = {
 export default function MenuList({ menuItems }: { menuItems: string[] }) {
   return (
     <motion.ul
-    className='absolute pl-10 pt-6 w-52'
+    className='absolute w-50 mt-12 z-40'
     variants={variants}>
       {menuItems.map((item, idx) => (
         <Item key={`menuitem-${idx}`} itemTitle={item} />

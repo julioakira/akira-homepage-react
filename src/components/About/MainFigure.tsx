@@ -15,9 +15,9 @@ export default function MainFigure() {
           alt="Akira Picture"
         />
         <figcaption className='flex flex-col lg:items-start items-center'>
-          <span className="lg:text-2xl text-xl">Julio Akira</span>
-          <span className="lg:text-xl text-lg">Full-Stack Developer</span>
-          <span className="text-md">NodeJS, MERN/PERN TypeScript/JavaScript</span>
+          <span className="font-serif-medium lg:text-3xl text-xl">Julio Akira</span>
+          <span className="font-sans lg:text-xl text-lg">Full-Stack Developer</span>
+          <span className="font-sans text-md">NodeJS, MERN/PERN TypeScript/JavaScript</span>
         </figcaption>
       </div>
     </figure>

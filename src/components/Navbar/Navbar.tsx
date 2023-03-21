@@ -1,5 +1,7 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { motion, useCycle } from "framer-motion";
+import { useScrollPosition } from "@n8tb1t/use-scroll-position";
+
 import MenuList from "./MenuList";
 import ToggleButton from "./ToggleButton";
 import ThemeSwitcher from "./ThemeSwitcher";
@@ -10,21 +12,10 @@ type Handler = (event: Event) => void;
 
 const items = ["About", "Works", "Other", "Contact"];
 
-function useDimensions(ref: any) {
-  const dimensions = useRef({ width: 0, height: 0 });
-
-  useEffect(() => {
-    dimensions.current.width = ref.current.offsetWidth;
-    dimensions.current.height = ref.current.offsetHeight;
-  }, []);
-
-  return dimensions.current;
-}
-
 export default function Navbar() {
   const [open, toggleOpen] = useCycle(false, true);
+  const [scrolled, setScrolled] = useState(false);
   const navRef = useRef(null);
-  const { height } = useDimensions(navRef);
 
   const WrapperRef = useRef<HTMLDivElement>(null);
 
@@ -44,25 +35,37 @@ export default function Navbar() {
     }, [ref, handler]);
   };
 
-  ClickOutside(WrapperRef, () => open ? toggleOpen() : null);
+  useScrollPosition(({ currPos }) => {
+    currPos.y < 0 ? setScrolled(true) : setScrolled(false);
+  });
 
+  ClickOutside(WrapperRef, () => (open ? toggleOpen() : null));
+
+  // make it sticky and blur on scroll down
+  // backdrop-blur-sm bg-peach/20
   return (
-    <motion.nav
-      className="bg-peach dark:bg-medium-slate-blue w-full h-20"
-      animate={open ? "open" : "closed"}
-      ref={navRef}
-      initial={false}
-      custom={height}
+    <div
+      className={`sticky top-0 flex flex-col bg-peach shadow-lg shadow-peach/50 dark:bg-medium-slate-blue dark:shadow-medium-slate-blue/50 ${
+        scrolled
+          ? "bg-peach/70 backdrop-blur-sm dark:bg-medium-slate-blue/70"
+          : ""
+      }`}
     >
-      <div ref={WrapperRef} className="mr-auto">
-        <ToggleButton toggle={() => toggleOpen()} />
-        <Sidebar 
-          className='bg-purple-400 dark:bg-orange-400 top-0 left-0 bottom-0 w-60 absolute'
-        />
-        <MenuList menuItems={items} />
-        <ThemeSwitcher className="float-right mt-3 mr-4" />
-        <Logo className='flex items-center justify-center -mt-9'/>
+      <div ref={WrapperRef}>
+        <motion.nav
+          animate={open ? "open" : "closed"}
+          ref={navRef}
+          initial={false}
+        >
+          <Sidebar
+            className="absolute left-0 top-12 bottom-0 h-screen w-48 bg-peach dark:bg-medium-slate-blue"
+          />
+          <ToggleButton toggle={() => toggleOpen()} />
+          {/* <Logo /> */}
+          <MenuList menuItems={items} />
+        </motion.nav>
+        <ThemeSwitcher className="float-right mt-1 mb-1 mr-4" />
       </div>
-    </motion.nav>
+    </div>
   );
 }
