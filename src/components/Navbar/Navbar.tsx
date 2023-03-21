@@ -47,7 +47,7 @@ export default function Navbar() {
     <div
       className={`sticky top-0 flex flex-col bg-peach shadow-lg shadow-peach/50 dark:bg-medium-slate-blue dark:shadow-medium-slate-blue/50 ${
         scrolled
-          ? "bg-peach/70 backdrop-blur-sm dark:bg-medium-slate-blue/70"
+          ? "bg-peach/80 backdrop-blur-sm dark:bg-medium-slate-blue/80"
           : ""
       }`}
     >
@@ -58,7 +58,11 @@ export default function Navbar() {
           initial={false}
         >
           <Sidebar
-            className="absolute left-0 top-12 bottom-0 h-screen w-48 bg-peach dark:bg-medium-slate-blue"
+            className={`absolute left-0 top-12 bottom-0 h-screen w-48 bg-peach shadow-lg shadow-peach/50 dark:bg-medium-slate-blue ${
+              scrolled
+                ? "lg:bg-peach/80 backdrop-blur-sm lg:dark:bg-medium-slate-blue/80 md:bg-peach/80 md:dark:bg-medium-slate-blue/80"
+                : ""
+            }`}
           />
           <ToggleButton toggle={() => toggleOpen()} />
           {/* <Logo /> */}
